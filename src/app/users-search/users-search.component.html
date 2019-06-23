@@ -1,0 +1,17 @@
+<p>
+  users-search works!
+</p>
+<div id="search-component">
+  <h4><label for="search-box">Hero Search</label></h4>
+
+  <input [(ngModel)]="term" id="search-box" (input)="search()" />
+  <button (click)="updateUsersList()">Search</button>
+  <ul class="search-result">
+    <li *ngFor="let user of users$ | async">
+      <div routerLink="/detail/{{ user.name.first }}">
+        {{user.name.title|  titlecase}} {{ user.name.first |  titlecase}},
+        {{ user.name.last |  titlecase}}
+      </div>
+    </li>
+  </ul>
+</div>

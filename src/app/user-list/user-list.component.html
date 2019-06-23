@@ -1,0 +1,12 @@
+<p>
+  user-list works!
+</p>
+<ul class="search-result">
+  <li *ngFor="let user of users$ | async">
+    <div>
+      {{user.name.title|  titlecase}} {{ user.name.first |  titlecase}},
+      {{ user.name.last |  titlecase}}
+      <img src="{{user.picture.large}}" alt="{{user.name.first}} picture">
+    </div>
+  </li>
+</ul>

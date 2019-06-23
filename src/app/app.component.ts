@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clicktale';
+  term: string;
+  updateList(event) {
+    this.term = event;
+    console.log(' updateList app.comp = ' + event);
+  }
 }
