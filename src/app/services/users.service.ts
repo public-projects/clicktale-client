@@ -31,34 +31,34 @@ export class UsersService {
     private http: HttpClient) { }
 
   /** GET heroes from the server */
-  getUsers (): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/users/users-list')
-      .pipe(
-        catchError(this.handleError<User[]>('getUseres', []))
-      );
-  }
+  // getUsers (): Observable<User[]> {
+  //   return this.http.get<User[]>('http://localhost:3000/users/users-list')
+  //     .pipe(
+  //       catchError(this.handleError<User[]>('getUseres', []))
+  //     );
+  // }
 
-  /** GET hero by id. Return `undefined` when id not found */
-  getUserNo404<Data>(id: number): Observable<User> {
-    const url = `${this.url}/?id=${id}`;
-    return this.http.get<User[]>(url)
-      .pipe(
-        map(heroes => heroes[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-        }),
-        catchError(this.handleError<User>(`getUser id=${id}`))
-      );
-  }
+  // /** GET hero by id. Return `undefined` when id not found */
+  // getUserNo404<Data>(id: number): Observable<User> {
+  //   const url = `${this.url}/?id=${id}`;
+  //   return this.http.get<User[]>(url)
+  //     .pipe(
+  //       map(heroes => heroes[0]), // returns a {0|1} element array
+  //       tap(h => {
+  //         const outcome = h ? `fetched` : `did not find`;
+  //       }),
+  //       catchError(this.handleError<User>(`getUser id=${id}`))
+  //     );
+  // }
 
-  /** GET hero by id. Will 404 if id not found */
-  getUser(id: number): Observable<User> {
-    const url = `${this.url}/${id}`;
-    console.log('get user');
-    return this.http.get<User>(url).pipe(
-      catchError(this.handleError<User>(`getUser id=${id}`))
-    );
-  }
+  // /** GET hero by id. Will 404 if id not found */
+  // getUser(id: number): Observable<User> {
+  //   const url = `${this.url}/${id}`;
+  //   console.log('get user');
+  //   return this.http.get<User>(url).pipe(
+  //     catchError(this.handleError<User>(`getUser id=${id}`))
+  //   );
+  // }
 
   /* GET heroes whose name contains search term */
   searchUsers(term: string, isDetailed: boolean): Observable<User[]> {
